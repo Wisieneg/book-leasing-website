@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wypożyczalnia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'wypozyczalnia/book_view.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'wypozyczalnia/style.css' %}" />
+    <script src="{% static 'js/alerts.js' %}"></script>
+
+  </head>
+<body>
+  <div class="site_header">
+    <img src="/media/images/logo.png" alt="logo" id="logo">
+    {% if user.is_authenticated %}
+      <div class="sub-panel"><a href="{% url 'wypozyczalnia:logout_view' %}"><button class="disabled">Jesteś zalogowany jako {{user.username}}<p id="pp">(wyloguj)</p></button></a></div>
+      <div class="sub-panel"><a href="{% url 'wypozyczalnia:account' %}"><button>Moje Konto</button></a></div>
+    {% else %}
+      <div class="sub-panel"><a href="{% url 'wypozyczalnia:login_view' %}"><button>Zaloguj</button></a></div>
+      <div class="sub-panel"><button class="disabled">Moje Konto</button></div>
+    {% endif %}
+
+    <div class="sub-panel"><a href="{% url 'wypozyczalnia:index' %}"><button>Książki</button></a></div>
+  </div>
+  {% if book %}
+
+  <div id="container">
+    <div id="book_image">
+        <img src='{{book.icon.url}}' alt="okladka" id="book_icon">
+    </div>
+    <div id="book_info">
+        <h1>{{book.title}}</h1>
+        <h3>{{book.author}}</h3>
+
+
+        <h4>Gatunek: {{book.category}}</h4>
+        <h4>Rok wydania: {{book.release}}</h4>
+        <h4>Ilość stron: {{book.pages}}</h4>
+
+        {% if not available %}
+        <a><button  class="disabled" >Niedostępna</button></a>
+        {% else %}
+        {% if not lensed %}
+        <a href="/wypozyczalnia/book/{{book.id}}/checkout"><button id="lend_button">Wypożycz</button></a>
+        {% else %}
+        <a href="/wypozyczalnia/book/{{book.id}}/giveback"><button id="giveback_button">Oddaj</button></a>
+        {% endif %}
+        {% endif %}
+      </div>
+    <div id="book_">
+        <h5>Opis:</h5>
+        {{book.info}}
+    </div>
+   </div>
+   {% if message %}
+    <script type="text/javascript">
+      var message="{{message}}";
+      alertSITE(message);
+    </script>
+  {% endif %}
+{% endif %}
+
+</body>
+</html>

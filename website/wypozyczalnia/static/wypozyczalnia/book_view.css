@@ -1,0 +1,56 @@
+#container{
+width: 1000px;
+margin-left: 10%;
+margin-right: 10%;
+margin-top: 20px;
+text-align: center;
+}
+
+#book_icon{
+    width: 400px;
+    height: 500px;
+    float: left;
+    display: inline-block;
+}
+
+#book_info{
+    display: inline-block;
+    height: 500px;
+    width: 600px;
+    text-align: center;
+    float: left;
+}
+
+#book_{
+    width: 100%;
+    height: auto;
+    float: left;
+    margin-top: 20px;
+}
+
+#lend_button{
+    background-color: #4CAF50; /* Green */
+    width: 120px;
+    height: 50px;
+    border-radius: 15px;
+}
+
+#giveback_button{
+    background-color: orange;
+    width: 120px;
+    height: 50px;
+    border-radius: 15px;
+}
+
+.disabled{
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.60;
+  filter: alpha(opacity=60);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: gray;
+  width: 120px;
+  height: 50px;
+  border-radius: 15px;
+}

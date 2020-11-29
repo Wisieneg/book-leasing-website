@@ -1,0 +1,119 @@
+#logo{
+    width: 170px;
+    height: 92px;
+}
+
+.site_header{
+    height: 92px;
+    border-bottom: 1px solid black;
+    width: 100%;
+    margin: 0px 0px 0px 0px ;
+}
+
+.sub-panel{
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    float: right;
+    border-left: 1px solid black;
+}
+
+a .sub-panel{
+    padding-top: 10px;
+}
+
+#container{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+#categories{
+    width: 30%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+#categories li{
+    position: relative;
+    width: 100%;
+    height: 10%;
+    border: 1px solid black;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#container ul{
+    padding-left: 0px;
+    list-style: none;
+}
+
+#lista ul{
+    list-style: none;
+    padding-left: 10px;
+}
+
+
+#baner{
+    border-bottom: 1px solid black;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    height: 300px;
+    position: relative;
+}
+
+#lista{
+    float: left;
+    width: 70%;
+    height: 2000px;
+    overflow: scroll;
+}
+
+.book{
+    opacity: 0.9;
+    width: 100%;
+    position: relative;
+    height: 200px;
+    border: black 1px solid;
+}
+
+.book_icon{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    left: 0px;
+    width: 100px;
+    height: 150px;
+    position: relative;
+    float: left;
+}
+
+.book_info{
+  text-align: center;
+  width: auto;
+  height: 100%;
+}
+
+.header{
+    width: 100%;
+    height: 30%;    
+}
+
+.sneak_peak{
+  margin-top: 0px;
+  text-align: center;
+  white-space: pre-line;
+  overflow: hidden;
+  position: relative;
+  height: 50%;
+  text-align: left;
+  padding-left: 10px;
+}

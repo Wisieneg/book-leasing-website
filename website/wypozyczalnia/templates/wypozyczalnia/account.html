@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wypożyczalnia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'wypozyczalnia/account.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'wypozyczalnia/style.css' %}" />
+</head>
+<body>
+  <div class="site_header">
+    <img src="/media/images/logo.png" alt="logo" id="logo">
+    {% if user.is_authenticated %}
+      <div class="sub-panel"><a href="{% url 'wypozyczalnia:logout_view' %}"><button class="disabled">Jesteś zalogowany jako {{user.username}}<p id="pp">(wyloguj)</p></button></a></div>
+      <div class="sub-panel"><a href="{% url 'wypozyczalnia:account' %}"><button>Moje Konto</button></a></div>
+    {% else %}
+      <div class="sub-panel"><a href="{% url 'wypozyczalnia:login_view' %}"><button>Zaloguj</button></a></div>
+      <div class="sub-panel"><button class="disabled">Moje Konto</button></div>
+    {% endif %}
+    
+    <div class="sub-panel"><a href="{% url 'wypozyczalnia:index' %}"><button>Książki</button></a></div>
+  </div>
+  <div id="container">
+    <ul>
+      {% if books %}
+      {% for book in books %}
+              
+                   
+      <li>
+        <div class="book">
+          <a href="/wypozyczalnia/book/{{book.id}}">
+            <img class="book_icon" src="{{book.icon.url}}"></img>
+              <div class="book_info">
+                <div class="header">
+                  <h4 style="margin-top: 0px;margin-bottom:0px;">{{book.title}}</h4>
+                  <h6 style="margin: 0px;">{{book.author}}</h6>
+                </div>
+              <div class="sneak_peak">{{book.info}}</div>
+            </div>
+          </a>
+        </div>
+        <div id="giveback">
+          <a href="/wypozyczalnia/book/{{book.id}}/giveback">
+            <button id="giveback_button">
+              Oddaj
+            </button>
+          </a>
+        </div>
+      </li>
+  
+      {% endfor %}
+      {% else %}
+        <h1>Nie wypożyczasz obecnie żadnych książek</h1>
+      {% endif %}
+      </ul>
+  </div>
+  
+</body>
+</html>
